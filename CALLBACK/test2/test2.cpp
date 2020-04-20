@@ -10,10 +10,15 @@
 int main(void)
 {
     A   a;
-    //a.machine.function(action, &a);
+    a.machine.function(action, &a);
     a.actionByA1();
     a.actionByA2();
-    //Machine m;
-    //m.function(action, NULL);//这样也能运行，只不过，不知道让谁执行action；如果没有对象A，可以执行别的事情
+    Machine m;
+    m.function(action, NULL);//这样也能运行，只不过，不知道让谁执行action；如果没有对象A，可以执行别的事情
+    m.function(action, &a);
+    m.registActionAndOnwe(action, &a);
+    m.function();
+    m.registOwner(&a);
+    m.function(action);
     return 0;
 }
